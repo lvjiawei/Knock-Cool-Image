@@ -1,0 +1,74 @@
+body
+{
+	background:url("images/1.jpg") repeat scroll 66% 33% transparent;
+	font-family:"Microsoft YaHei";
+}
+
+.button1
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:60px;
+	height:25px;
+	background-image:url("images/button1.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+	float:left;
+}
+.button2
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:95px;
+	height:33px;
+	background-image:url("images/button2.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+}
+#orange
+{
+	color:black;
+	font-weight:bold;
+}
+#blue
+{
+	color:orange;
+	font-weight:bold;
+	font-size:150%;
+	text-align:center;
+}
+.text
+{
+    border-color:blue;
+    border-width: thin;
+    border-style: solid;
+}
+.signback
+{
+	width:290px;
+	height: 211px;
+	position:relative;
+	background-image: url(images/signback.png);
+	background-repeat:no-repeat;
+	left:500px;
+	top:150px;
+	align:center;
+	
+}
+h2
+{
+	position:relative;
+	top:10px;
+	text-align:center;
+}
+.Sign
+{
+	width:270px;
+	height:auto;
+	position:relative;
+	top:0px;
+	margin-left:auto; margin-right: auto;
+	margin-top:auto; margin-bottom: auto;
+}
