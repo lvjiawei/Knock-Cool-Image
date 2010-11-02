@@ -13,12 +13,12 @@ class user_login
     public $con;
     //private $res;
     //private $row;
-    //public $user;
-    //public $password;
+      public $user;
+      public $password;
     
     public function connect_mysql()
     {
-        $this->con=mysql_connect("localhost","coolimage","1234asd");
+        $this->con=mysql_connect("localhost","users","asdf12345");
         if(!$this->con)
         {
             die('Could not connect: '.mysql_error());
@@ -31,8 +31,9 @@ class user_login
          $db=mysql_select_db("user_db");
          //$this->user=$_post['email'];
          //$this->password=$post['pw'];
-         $usr=$_POST['email']; 
-         $result=mysql_query("SELECT * FROM userinfo WHERE e_mail='$usr'",$this->con);
+         if(!$db){die(' 服务器正在维护中，请一段时间后再登陆 '.mysql_error());}
+         //$user=$_POST['email']; 
+         $result=mysql_query("SELECT * FROM userinfo WHERE e_mail='$this->user'",$this->con);
      //$row=mysql_num_rows("SELECT * FROM userinfo WHERE e_mail='$_post[email]'",$con);
      $num=mysql_num_rows($result);
      if($num==0){
@@ -44,7 +45,7 @@ class user_login
      else{
         $row=mysql_fetch_array($result);
         //if($result['password']==$_POST['pw'])
-        if($row['password']==$_POST['pw'])
+        if($row['password']==$this->password)//$_POST['pw'])
         {
             echo("<table width='100%' align=center><tr><td align=center>
               Welcome to Cool Image!<br>
@@ -97,8 +98,8 @@ class user_login
     $log = new user_login();
     if(!$log->connect_mysql())
     { 
-        //$log->user=$_post['email'];
-        //$log->password=$_post['pw'];
+        $log->user=trim($_POST['email']);
+        $log->password=trim($_POST['pw']);
         $log->check_pw();
         //echo ($log->res);
      }
