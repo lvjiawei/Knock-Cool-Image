@@ -8,9 +8,18 @@
  * @version $Id$
  * @access public
  */
-class user_login
+    /**
+     * user_login
+     * 
+     * @package 
+     * @author admin
+     * @copyright 2010
+     * @version $Id$
+     * @access public
+     */
+    class user_login
 {
-    public $con;
+      public $con;
     //private $res;
     //private $row;
       public $user;
@@ -47,10 +56,19 @@ class user_login
         //if($result['password']==$_POST['pw'])
         if($row['password']==$this->password)//$_POST['pw'])
         {
-            echo("<table width='100%' align=center><tr><td align=center>
-              Welcome to Cool Image!<br>
-              <font color=greeen><a href='user.html'>点击进入</a></font>
-              </td></tr></table>");
+            //echo "<script>window.location =\"http://localhost/Knock-Cool-Image/user.html\";</script>";
+            session_start();
+            session_register('user');
+            $_SESSION['user']=$this->user;
+            echo "<table width='100%' align=center><tr><td align=center>      		              
+                  Welcome to Cool Image!<br>
+                 <font color=greeen><a href='user.html'>点击进入</a></font>
+                 </td></tr></table>
+                 <script language=\"JavaScript\">window.setTimeout(\"window.location.href=\'http://localhost/Knock-Cool-Image/user.html\'\", 3*1000); </script>";
+            //echo("<table width='100%' align=center><tr><td align=center>            
+           //   Welcome to Cool Image!<br>
+           //   <font color=greeen><a href='user.html'>点击进入</a></font>
+           //   </td></tr></table>");
         }
         else{
             echo("<table width='100%' align=center><tr><td align=center>
@@ -95,6 +113,7 @@ class user_login
           //}       
       }
 }
+
     $log = new user_login();
     if(!$log->connect_mysql())
     { 
