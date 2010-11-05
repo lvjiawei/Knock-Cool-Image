@@ -27,7 +27,7 @@
     
     public function connect_mysql()
     {
-        $this->con=mysql_connect("localhost","users","asdf12345");
+        $this->con=mysql_connect("localhost","root","");
         if(!$this->con)
         {
             die('Could not connect: '.mysql_error());
