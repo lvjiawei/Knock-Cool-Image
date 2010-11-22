@@ -5,18 +5,9 @@
  * @package 
  * @author zhuhaofeng
  * @copyright 2010
- * @version $Id$
+ * @version 1.2
  * @access public
  */
-    /**
-     * user_login
-     * 
-     * @package 
-     * @author admin
-     * @copyright 2010
-     * @version $Id$
-     * @access public
-     */
     class user_login
 {
       public $con;

@@ -5,10 +5,6 @@
 	Project: konck_image
 	-->
 	<head>
-	<?php
-	session_start();
-	session_register('user');
-	?>
 		<title>My Pictrue</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="index_css.css" />
@@ -117,10 +113,10 @@
 				<table>
 				<tr><td id="orange"><p>Email:</p></td><td><input type="text" name="email" id="email" class="text"></td></tr>
 				<tr><td></td><td><input type="button" value="CheckIfUsed" class="button1" onclick="CheckIfUsed()"></td></tr>
-				<tr><td id="orange"><p>Choose a password:</p> </td><td><input type="text" name="ps" id="ps" class="text"></td></tr>
-				<tr><td id="orange"><p>Re-enter password:</p> </td><td><input type="text" name="ps2" id="ps2" class="text"></td></tr>
+				<tr><td id="orange"><p>Choose a password:</p> </td><td><input type="password" name="ps" id="ps" class="text"></td></tr>
+				<tr><td id="orange"><p>Re-enter password:</p> </td><td><input type="password" name="ps2" id="ps2" class="text"></td></tr>
 				<tr><td id="orange"><p>Name:</p></td><td><input type="text" name="name" id="name" class="text"></td></tr>
-				<tr><td id="orange"><p>Birthyear:</p> </td><td><input type="text" name="byear" id="byear" class="text"></td></tr>
+				<!--<tr><td id="orange"><p>Birthyear:</p> </td><td><input type="text" name="byear" id="byear" class="text"></td></tr>-->
 				<tr><td id="orange"><p>密保问题:</p> </td><td><input type="text" name="psquestion" id="psquestion" class="text"></td></tr>
 				<tr><td id="orange"><p>密保答案:</p> </td><td><input type="text" name="psanswer" id="psanswer" class="text"></td></tr>
 				<!--那个出生日期什么的其实可以不要，你觉得怎么好就怎么填啊-->
