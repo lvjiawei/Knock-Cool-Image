@@ -8,27 +8,23 @@
 		<title>My Pictrue</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="index_css.css" />
-		<script language="JavaScript">
-		function signup()
-		{
-			window.setTimeout("window.location.href='http://localhost/Knock-Cool-Image/signup.html'", 3);
-		}
-		</script>
+		<script type="text/javascript" src="check.js"></script>
+		<script type="text/javascript" src="jump.js"></script>
 	</head>
 	<body>
 	<div class="signback">
 	<h2>Welcome!</h2>
 	<div class="Sign">
-		<form action="index_check.php" method="post">
+		<form action="index_check.php" method="post" onSubmit="return signin_check()">
 			<table>
 				<tr><td id="orange">Your Email:</td><td><input type="text" name="email" id="email" class="text"></td></tr>
 				<tr><td id="orange">Password:<td><input type="password" name="pw" id="pw" class="text"></td></tr>
 				<tr><td></td>
 					<td><input type="submit" value="Sign In" class="button1">
-					    <input type="button" value="Forget" class="button1">
+					    <input type="button" value="Forget" class="button1" onClick="forget_jump()">
 					</td>
 				</tr>
-				<tr><td id="blue">No Account?</td><td><input type="button" value="Sign Up Now" class="button2" onclick="signup()"></td></tr>
+				<tr><td id="blue">No Account?</td><td><input type="button" value="Sign Up Now" class="button2" onclick="signup_jump()"></td></tr>
 			</table>
 		</form>
 	</div>	

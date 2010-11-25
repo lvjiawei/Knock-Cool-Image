@@ -2,7 +2,7 @@
 /**
  * user_login
  * 
- * @package 
+ * @package Knock-Cool-Image
  * @author zhuhaofeng
  * @copyright 2010
  * @version 1.2
@@ -50,6 +50,8 @@
             //echo "<script>window.location =\"http://localhost/Knock-Cool-Image/user.html\";</script>";
             session_start();
             session_register('user');
+			session_register('mod');
+			$_SESSION['mod']=1;
             $_SESSION['user']=$this->user;
             echo "<table width='100%' align=center><tr><td align=center>      		              
                   Welcome to Cool Image!<br>
@@ -68,7 +70,6 @@
             </td></tr></table>");
         }
      }
-     mysql_close();
          /*
          $mysql = mysql_query("SELECT * FROM userinfo WHERE e_mail='$this->user'",$this->con);
          $num=mysql_num_rows($mysql);
@@ -120,7 +121,13 @@
      $usr=$_POST['email']; 
         
      $result=mysql_query("SELECT * FROM userinfo WHERE e_mail='$usr'",$con);
-     //$row=mysql_num_rows("SELECT * FROM userinfo WHERE e_mail='$_post[email]'",$con);
+     //$row=mysql_num_rows("SELECT/*$con=mysql_connect("localhost","coolimage","1234asd");
+     if(!$con){die('Could not connect: '.mysql_error());}
+     $db=mysql_select_db("user_db");
+     //mysql_query("set names utf8",$con); 
+     $usr=$_POST['email']; 
+        
+     $result=mysql_query * FROM userinfo WHERE e_mail='$_post[email]'",$con);
      $num=mysql_num_rows($result);
      if($num==0){
         echo("<table width='100%' align=center><tr><td align=center>

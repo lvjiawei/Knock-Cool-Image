@@ -21,7 +21,7 @@
      echo "请输入邮箱!";
    
    }
-   else if(!ereg("^[-a-zA-Z0-9_\.]+\@([0-9A-Za-z][0-9A-Za-z-]+\.)+[A-Za-z]{2,5}$",$email))
+   else if(!preg_match("/^[-a-zA-Z0-9_\.]+\@([0-9A-Za-z][0-9A-Za-z-]+\.)+[A-Za-z]{2,5}$/",$email))
    {
 		echo "请输入正确的邮箱地址！";
    }

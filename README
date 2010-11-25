@@ -10,6 +10,11 @@ your own toolset if you want.
 More requirement in the wiki and issu.
 You turn to the webpage and scan all the document for a fur-
 ther acknowledge.
+==Using language
+PHP (using the zend famework design style) //files:index_check.php forget.php usercheck.php signup.php
+Javascript (no strict design style)   // files:check.js jump.js
+Html //files:index.html user.html signup.html
 ==change log
 2010-11-14   start to add the change log  nothing change   version 0.0.1
 2010-11-22   finish the signup usecase coding  add database diagram version 0.0.2
+2010-11-25   half done the forget.php and update the Sprint  version 0.0.3

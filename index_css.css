@@ -27,6 +27,30 @@ body
 	cursor:pointer;
 	font-weight:bold;
 }
+.button3
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:90px;
+	height:25px;
+	background-image:url("images/button3.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+	float:left;
+}
+.button4
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:220px;
+	height:32px;
+	background-image:url("images/button4.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+	float:left;
+}
 #orange
 {
 	color:black;
@@ -38,6 +62,13 @@ body
 	font-weight:bold;
 	font-size:150%;
 	text-align:center;
+}
+#symbol
+{        
+	color:orange;
+	font-weight:bold;
+	font-size:120%;
+	text-align:right;	
 }
 .text
 {
