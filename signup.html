@@ -1,31 +1,36 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<!--
 	knock,2010.10
 	Project: konck_image
+	@author lvjiawei
+	@author zhuhaofeng
+	@copyright 2010
+	@version 0.1
 	-->
 	<head>
 		<title>My Pictrue</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="index_css.css" />
-		<script src="check.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/index_css.css" />
+		<script type="text/javascript" src="./js/check.js"></script>
+		<script type="text/javascript" src="./js/jump.js"></script>
 	</head>
 	<body>
 		<div class="signup">
-			<form name="form1" action="signup.php" method="post" onSubmit="return checkall()">
+			<form name="form1" action="./php/signup.php" method="post" onSubmit="return checkall()">
 				<table>
-                <tr><td id="symbol">&nbsp;&nbsp;&nbsp;&nbsp;Cool Image Register</td><td></td><td></td></tr>
+                <tr><td id="symbol">&nbsp;&nbsp;&nbsp;&nbsp;Cool Image Register</td><td><input type="button" class="button" value="<<Roll Back" onclick="signin_jump1(3)"></td><td></td></tr>
 				<tr><td></td><td id="orange"><p align="right">Email:</p></td><td><input type="text" name="email" id="email" class="text"></td></tr>
 				<tr><td></td><td></td><td><input type="button" value="CheckIfUsed" class="button3" onclick="CheckIfUsed()"></td></tr>
 				<tr><td></td><td id="orange"><p align="right">Enter a password:</p> </td><td><input type="password" name="ps" id="ps" class="text"></td></tr>
 				<tr><td></td><td id="orange"><p align="right">Re-enter password:</p> </td><td><input type="password" name="ps2" id="ps2" class="text"></td></tr>
 				<tr><td></td><td id="orange"><p align="right">Name:</p></td><td><input type="text" name="name" id="name" class="text"></td></tr>
 				<!--<tr><td id="orange"><p>Birthyear:</p> </td><td><input type="text" name="byear" id="byear" class="text"></td></tr>-->
-				<tr><td></td><td id="orange"><p align="right">密保问题:</p> </td><td><input type="text" name="psquestion" id="psquestion" class="text"></td></tr>
-				<tr><td></td><td id="orange"><p align="right">密保答案:</p> </td><td><input type="text" name="psanswer" id="psanswer" class="text"></td></tr>
-				<!--那个出生日期什么的其实可以不要，你觉得怎么好就怎么填啊-->
+				<tr><td></td><td id="orange"><p align="right">&#23494;&#20445;&#38382;&#39064;:</p> </td><td><input type="text" name="psquestion" id="psquestion" class="text"></td></tr>
+				<tr><td></td><td id="orange"><p align="right">&#23494;&#20445;&#31572;&#26696;:</p> </td><td><input type="text" name="psanswer" id="psanswer" class="text"></td></tr>
+				<!--那个出生日期什么的其实�&#65533;�以�&#65533;�&#65533;，你觉得怎么好就怎么填啊-->
 				<tr><td></td><td></td><td><textarea rows="3" cols="35" readonly="true" 
-                        name="S1">在w3school，你可以找到你所需要的所有的网站建设教程</textarea></td>
+                        name="S1">Knock&#23567;&#32452;&#20026;&#22823;&#23478;&#25552;&#20379;&#20248;&#36136;&#30340;&#22270;&#20687;&#22788;&#29702;&#12289;&#32593;&#19978;&#22270;&#20687;&#20445;&#23384;&#12289;&#22270;&#29255;&#19978;&#20256;&#21151;&#33021;&#12290;&#24076;&#26395;&#21508;&#20010;&#29992;&#25143;&#22312;&#26412;&#32593;&#31449;&#19978;&#33021;&#36981;&#23432;&#27861;&#24459;&#27861;&#35268;,&#19981;&#20256;&#25773;&#28139;&#31229;&#22270;&#29255;&#20449;&#24687;,&#19981;&#21457;&#24067;&#27745;&#35328;&#31229;&#35821;,&#19981;&#21457;&#24067;&#21453;&#20826;&#21453;&#31038;&#20250;&#30340;&#35328;&#35770;&#21450;&#22270;&#29255;&#12290;&#36829;&#32773;&#21024;&#21495;,&#24182;&#20445;&#30041;&#36861;&#31350;&#27861;&#24459;&#36131;&#20219;&#30340;&#26435;&#21033;</textarea></td>
 				<tr><td></td><td></td>
 					<td><input type="submit" value="I accept. Create my account." class="button4">
 					</td>
