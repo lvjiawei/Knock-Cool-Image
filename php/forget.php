@@ -188,13 +188,14 @@ else if($_SESSION['state']==3)
 			Have a pleasure visit!Welcome to the Cool Image!";
 			$header="From :lv.jw12@gmail.com";
 			mail($_SESSION['email'],$subject,$message,$header);
-			$_SESSION['mod']=1;
+			$_SESSION['mod']=0;
 			unset ($_SESSION['pwanswer']);
 			unset ($_SESSION['psanswer']);
 			unset ($_SESSION['pw']);
+			unset ($_SESSION['email']);
 
 			echo "<script type=\"text/javascript\">
-					  window.setTimeout(\"window.location.href=\'../user.html\'\",3*1000);
+					  window.setTimeout(\"window.location.href=\'../index.html\'\",3*1000);
 				  </script>";
 		}
 		else

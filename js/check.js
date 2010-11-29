@@ -31,16 +31,16 @@ function checkps()
 	var pw2=document.getElementById('ps2').value;
 	if(pw == "")
 	{
-		alert("Please input the passwordï¼&#65533;");
+		alert("Please input the password!");
 		return false;
 	}
 	if(pw2 == "")
 	{
-		alert("Please input the re-type passwordï¼&#65533;");
+		alert("Please input the re-type password!");
 		return false;
 	}else if(pw != pw2)
 	{
-		alert("The two password are not the sameï¼&#65533;");
+		alert("The two password are not the same!");
 		return false;
 	}
 	if(pw.length<6)
