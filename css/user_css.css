@@ -1,0 +1,26 @@
+/*body
+{
+	background:url("../images/1.jpg") repeat scroll 66% 33% transparent;
+	font-family:"Microsoft YaHei";
+}*/
+.left
+{
+	float:left;
+	width:300px;
+	height:auto;
+	height:600px;
+}
+.avatarimage
+{
+	max-width: 200px;
+	max-height: 200px;
+}
+*html.avatarimage{
+width:expression(this.width>200&&this.width>this.height?200:auto);
+height:expression(this.height>200?200:auto);
+}
+.name
+{
+	text-align:center;
+	background-color: #FFF;
+}
