@@ -11,16 +11,45 @@ function checkemail()
 {
 	var email=document.getElementById('email').value;
 	var emailerr=0;
-	for (i=0; i<email.length; i++) 
-	{ 
-		if ((email.charAt(i) == "@") & (email.length > 5)) 
-		{ 
+	var temp1=0;
+	var temp2=0;
+	if(email==""){
+		alert("Email address cannot be empty!");
+		return false;
+	}
+	for (i=0; i<email.length; i++)
+	{
+		if ((email.charAt(i) == "@") & (email.length > 5))
+		{
 			emailerr=emailerr+1;
-		} 
-	} 
-	if (emailerr != 1) 
-	{ 
-		alert("Please input the correct e-mail address!");
+		}
+		if(email.charAt(i) == "@")
+			temp1=i;
+		if((email.charAt(i) == ".") && (i>temp1)&&(temp1!=0))
+			temp2=i;
+	}
+	if((temp2-temp1!=3)&&(temp2-temp1!=4)&&(temp2-temp1!=5)&&(temp2-temp1!=6)){
+		alert("The email address is incorrct!");
+		return false;
+	}
+	var result=email.match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/);
+	if(result==null){alert("The email address is incorrected!"); return false;}
+	if((email.length-temp2)!=4){
+		alert("The email address is not exist!");
+		return false;
+	}
+	if(((email.charAt(temp2+1)!="c")&&(email.charAt(temp2+2)!="o")&&(email.charAt(temp2+3)!="m"))
+	&&((email.charAt(temp2+1)!="n")&&(email.charAt(temp2+2)!="e")&&(email.charAt(temp2+3)!="t"))
+	&&((email.charAt(temp2+1)!="e")&&(email.charAt(temp2+2)!="d")&&(email.charAt(temp2+3)!="u"))
+	&&((email.charAt(temp2+1)!="o")&&(email.charAt(temp2+2)!="r")&&(email.charAt(temp2+3)!="g"))
+	&&((email.charAt(temp2+1)!="g")&&(email.charAt(temp2+2)!="o")&&(email.charAt(temp2+3)!="v")))
+	{
+		alert("The email address is not right!");
+		return false;
+	}
+	if (emailerr != 1)
+	{
+		alert("Please input the corrected e-mail address!");
 		return false;
 	}
 	return true;
@@ -29,6 +58,7 @@ function checkps()
 {
 	var pw=document.getElementById('ps').value;
 	var pw2=document.getElementById('ps2').value;
+	var re=pw.match(/^[0-9a-zA-Z\_]+$);
 	if(pw == "")
 	{
 		alert("Please input the password!");
@@ -48,14 +78,17 @@ function checkps()
 		alert("Please input passwords longer than 6 bytes!");
 		return false;
 	}
+	if(!re==null){
+		return false;
+	}
 	return true;
 }
 function checkname()
 {
 	var name=document.getElementById('name').value;
-	if (name == "") 
-	{ 
-		alert("Please Input nickname!");  
+	if (name == "")
+	{
+		alert("Please Input nickname!");
 		return false;
 	}
 	return true;
@@ -93,7 +126,11 @@ function checkpsanswer()
 function CheckIfUsed()
 {
 	var email=document.getElementById('email').value;
-	window.open("./php/usercheck.php?email="+email,"newframe","width=200,height=10,left=500,top=200,menubar=no,toolbar=no,location=no,scrollbars=no,location=no");
+	if(checkemail()){
+		window.open("./lib/usercheck.php?email="+email,"newframe","width=200,height=10,left=500,top=200,menubar=no,toolbar=no,location=no,scrollbars=no,location=no");
+		return true;
+	}else
+		return false;
 }
 function checkall()
 {
