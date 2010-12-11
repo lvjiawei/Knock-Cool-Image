@@ -49,7 +49,7 @@
 		<tr><td>���� <?php /*�����˵�����*/  ?></td><td></td></tr>
 		<?php
 			/*if �û����ְ�����Ŀ������*/
-			echo "<tr><td>"."<img src=/" ͷ��ͼƬ/" class=/"search_avatar/"//>"."</td><td>"./*����û�������*/."</td></tr>"
+			echo "<tr><td>"."<img src=\" ͷ\" class=\"search_avatar\"/>"."</td><td>"./*����û�������*/"</td></tr>";
 		?>
 		</table>
 	</div>

@@ -58,7 +58,7 @@ function checkps()
 {
 	var pw=document.getElementById('ps').value;
 	var pw2=document.getElementById('ps2').value;
-	var re=pw.match(/^[0-9a-zA-Z\_]+$);
+	var re=pw.match(/^[0-9a-zA-Z\_]+$/);
 	if(pw == "")
 	{
 		alert("Please input the password!");

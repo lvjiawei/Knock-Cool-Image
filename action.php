@@ -9,8 +9,8 @@
  * @access public
  */
 if(!isset ($_SESSION))
-	session_start();
-if(isset($_POST['avatar']))
+	@session_start();
+if(isset($_POST['avatar'])&&$_SESSION['mod']==1)
 {
 	if(is_uploaded_file($_FILES['avatar']['tmp_name'])){
 	    $Filedata = $_FILES["avatar"];
@@ -128,6 +128,61 @@ if(isset ($_GET['action'])){
 			</div>
 		</body>";
 		break;
+	case 'newalbum':
+			echo "<head>
+               <title>My Pictrue</title>
+			   <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+			   <link rel=\"stylesheet\" type=\"text/css\" href=\"css/forget.css\" />
+			   <script type=\"text/javascript\">" .
+			   		"function checkanswer(){
+						var tag=document.getElementById(\'tag\').value;" .
+						"if(tag==\"\")return false;" .
+						"else return true;
+			   		}" .
+			   	"</script>
+		</head>
+		<body>
+			<div class=\"forget password\">
+			<div class=\"Signback\">
+			<form action=\"action.php\" method=\"post\" onSubmit=\"return checkanswer()\"><table>
+				<tr><td id=\"orange\">Tips:</td><td><br></td>" .
+				"<tr><td></td>><td>type in your album's tag name then create a new album.</td></tr>
+				<tr><td>Tag:</td><td><input type=\"hidden\" name=\"action\" id=\"action\" value=\"newalbum\"><input type=\"text\" name=\"tag\" id=\"tag\" class=\"text\"></td></tr>
+				<tr><td><input type=\"submit\" value=\"Create new album\" class=\"button\"></td><td><input type=\"button\" value=\"Close\" class=\"button\" onClick=\"window.close()\">
+				</td>
+				</tr>
+			</table>
+			</form>
+			</div>
+			</div>
+		</body>";
+		break;
+	case 'newphoto':
+		echo "<head>
+               <title>My Pictrue</title>
+			   <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+			   <link rel=\"stylesheet\" type=\"text/css\" href=\"css/forget.css\" />
+			   <script type=\"text/javascript\">" .
+			   		"function checkanswer(){
+						var photo=document.getElementById(\'photo\').value;
+						var pname=document.getElementById(\'pname\').value;
+						if(photo==\"\"||pname==\"\"){alert(\"cannot be empty!\");return false;}
+						else return true;
+			   		}" .
+			   	"</script>
+		</head>
+		<body>
+			<form action=\"action.php\" method=\"post\" enctype=\"multipart/form-data\" onSubmit=\"return check()\">
+			<table>
+				<tr><td id=\"orange\">photo:</td><td><input type=\"file\" name=\"photo\" id=\"photo\" class=\"text\"><input type=\"hidden\" id=\"aid\" name=\"aid\" value=\"".$_GET['aid']."\"></td>
+				<tr><td>name:</td><td><input type=\"hidden\" name=\"action\" id=\"action\" value=\"newphoto\"><input type=\"text\" name=\"pname\" id=\"pname\" class=\"text\"></td></tr>
+				<tr><td><input type=\"submit\" value=\"Add new Photo\" class=\"button\"></td><td><input type=\"button\" value=\"Close\" class=\"button\" onClick=\"window.close()\">
+				</td>
+				</tr>
+			</table>
+			</form>
+		</body>";
+		break;
 	default:
 		echo "<script language=\"JavaScript\">window.setTimeout(\"window.location.href=\'index.php\'\", 3); </script>";
 		break;
@@ -154,13 +209,133 @@ if(isset ($_POST['action']))
 		case 'modify':
 			modify();
 			break;
+		case 'newalbum':
+			newalbum();
+			break;
+		case 'newphoto':
+			newphoto();
+			break;
 		default:
 			echo "There is nothing to do!";
 			echo "<script language=\"JavaScript\">window.setTimeout(\"window.location.href=\'index.php\'\", 3); </script>";
 			break;
 	}
 }
+function newphoto(){
+	if(is_uploaded_file($_FILES['photo']['tmp_name'])&&$_SESSION['mod']==1){
+		    $Filedata = $_FILES["photo"];
+			$name = $Filedata['name'];
+		 	$type = $Filedata['type'];
+		 	$size = $Filedata['size'];
+		 	$tmp_name = $Filedata['tmp_name'];
+		 	$error = $Filedata['error'];
 
+			 if($size>=3000000){
+			 	echo "<head>
+									<title>My Pictrue</title>
+									<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+									<link rel=\"stylesheet\" type=\"text/css\" href=\"css/forget.css\" />
+									<script type=\"text/javascript\" src=\"js/check.js\"></script>
+									<script language=\"JavaScript\">window.setTimeout(\"window.close()\", 3*10000); </script>
+					</head>
+					<body>
+					<table width='100%' align=center><tr><td align=center>
+	                  <br>
+	                 <font color=green>上传文件太大：</font>
+	                 </td></tr></table>
+					 </body>";
+			  	exit('您上传的文件大小超过限定');
+			 }
+			 switch($type){
+			  	case 'image/pjpeg' : $nameback='.jpg';
+			  						break;
+				case 'image/jpeg' : $nameback='.jpg';
+									break;
+				case 'image/gif' : $nameback='.gif';
+				 					break;
+				case 'image/png' : $nameback='.png';
+				  					break;
+				case 'image/bmp' : $nameback='.bmp';
+				  					break;
+				case exit('类型犯规！');
+
+		 	}
+		 	require(realpath("./")."/lib/MySQL.php");
+		 	$link=connect();
+		 	$db=mysql_select_db("user_db");
+		 	$dir="data/photos/";
+	 		if($nameback && $error==0){
+	 			@mysql_query("insert into photo (aid,pname,flowers,eggs) values(".$_POST['aid'].",'".$_POST['pname']."',0,0)",$link);
+	 			$result=mysql_query("select pid from photo where pname='".$_POST['pname']."'",$link);
+	 			$tem=mysql_fetch_array($result);
+	 			$pid=$tem['pid'];
+	  			$filename= $_SESSION['user']."_".$_POST['aid']."_".$pid. $nameback;
+	  			$fileplace="".$dir."" . $filename;
+	  			$fileroot=$dir;
+	 		    move_uploaded_file($tmp_name, $fileplace);
+	  			$para=mysql_query("update photo set image='".$fileplace."' where pid=".$pid."",$link);
+	  			if($para){
+	  				echo "<head>
+									<title>My Pictrue</title>
+									<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+									<link rel=\"stylesheet\" type=\"text/css\" href=\"css/forget.css\" />
+									<script type=\"text/javascript\" src=\"js/check.js\"></script>
+									<script language=\"JavaScript\">window.setTimeout(\"window.close()\", 3*1000); </script>
+					</head>
+					<body>
+					<table width='100%' align=center><tr><td align=center>
+	                 <font color=green> Add photo succeded!</font><br>
+	                 </td></tr></table>
+					 </body>";
+	  			}
+	 		}
+	 		if(!isset($para)||!$para){
+	 			mysql_query("delete from photo where pid=".$pid."",$link);
+				echo "<head>
+									<title>My Pictrue</title>
+									<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+									<link rel=\"stylesheet\" type=\"text/css\" href=\"css/forget.css\" />
+									<script type=\"text/javascript\" src=\"js/check.js\"></script>
+									<script language=\"JavaScript\">window.setTimeout(\"window.close()\", 3*1000); </script>
+					</head>
+					<body>
+					<table width='100%' align=center><tr><td align=center>
+	                 <font color=green>Failed to add photo!</front><br>
+	                 </td></tr></table>
+					 </body>";
+	 		}
+		}
+}
+function newalbum(){
+	require("/lib/Container.php");
+	$temp=new Container(2);
+	if($temp->newalbum($_POST['tag']))
+		echo "<head>
+					<title>My Pictrue</title>
+					<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+					<link rel=\"stylesheet\" type=\"text/css\" href=\"css/forget.css\" />
+					<script type=\"text/javascript\" src=\"js/check.js\"></script>
+			</head>
+				<body>
+				<table width='100%' align=center><tr><td align=center>
+                  Album is created!<br>
+                 <input type=\"button\" value=\"close\" name=\"close\" onClick=\"window.close()\">
+                 </td></tr></table>
+				 </body>";
+	else
+		echo "<head>
+					<title>My Pictrue</title>
+					<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+					<link rel=\"stylesheet\" type=\"text/css\" href=\"css/forget.css\" />
+					<script type=\"text/javascript\" src=\"js/check.js\"></script>
+			</head>
+				<body>
+				<table width='100%' align=center><tr><td align=center>
+                  <B color=\"red\">Failed to Create a new Album!</B><br>
+                 <input type=\"button\" value=\"close\" name=\"close\" onClick=\"window.close()\">
+                 </td></tr></table>
+				 </body>";
+}
 function login()
 {
 	require_once(realpath("./")."/lib/information/user.php");
@@ -270,12 +445,16 @@ function modify()
 }
 function signup()
 {
-	require_once(realpath("./")."/lib/actions/user.php");
+	require_once("/lib/MySQL.php");
 		if(isset($_SESSION['email']))
 			unset($_SESSION['email']);
-		$temp=new user(2);
-		if($temp){
-			if(!$temp->userexist($_POST['email'])){
+		$link=connect();
+		@mysql_select_db("user_db");
+		$temp[0]=mysql_query("select * from userinfo where e_mail='".$_POST['email']."'",$link);
+		$temp[1]=mysql_num_rows($temp[0]);
+		$temp[2]=mysql_fetch_array($temp[0]);
+		if($temp[0]){
+			if($temp[1]==0){
 				require_once(realpath("./")."/lib/actions/email.php");
 				$to=array(
 					'email' => $_POST['email'],
@@ -285,10 +464,15 @@ function signup()
 				);
 				$result=send_mail($to);
 				if($result){
-					if($temp->signup("'".$_POST['email']."','".$_POST['ps']."','".$_POST['name']."','".$_POST['pwquestion']."','".$_POST['pwanswer']."'")){
+					if(mysql_query("insert into userinfo (e_mail,password,nickname,pwquestion,pwanswer) values('".$_POST['email']."','".$_POST['ps']."','".$_POST['name']."','".$_POST['pwquestion']."','".$_POST['pwanswer']."')",$link)){
 						$_SESSION['email']=$_POST['email'];
 						$_SESSION['mod']=1;
 						$_SESSION['nickname']=$_POST['name'];
+						$re=mysql_query("select uid from userinfo where e_mail='".$_POST['email']."'",$link);
+						$row=mysql_fetch_array($re);
+						$_SESSION['user']=$row['uid'];
+						mysql_query("insert into shared (uid) values (".$row['uid'].")",$link);
+						@mysql_close($link);
 						echo ("<script language=\"JavaScript\">window.setTimeout(\"window.location.href=\'user.php\'\", 10000); </script>");
 					}else{
 						echo "<table width='100%' align=center><tr><td align=center>

@@ -9,8 +9,8 @@
  * @access public
  */
 if(!isset ($_SESSION))
-	session_start();
-require_once(realpath("./")."/lib/MySQL.php");
+	@session_start();
+require_once("MySQL.php");
 /*
  *Class:Container  It's used to contain all the function handler for reuse.
  */
@@ -22,7 +22,7 @@ class Container
 	private $con;
 	private $action;
 	/*
-	 *construct function   according to the  varable $action to define the 
+	 *construct function   according to the  varable $action to define the
 	 *environment
 	 */
 	function __construct($action)
@@ -42,7 +42,7 @@ class Container
 			mysql_close($this->con);
 	}
 	/*
-	 *function:exit  logout of the webpage and clear the session 
+	 *function:exit  logout of the webpage and clear the session
 	 */
 	public function userexit()
 	{
@@ -81,6 +81,11 @@ class Container
 			if($action1==1)
 				echo "<script type=\"text/javascript\">window.location.replace(\"".$address."\");</script>";
 		}
+	}
+	public function newalbum($tag){
+		$link=connect();
+		mysql_select_db("user_db");
+		return mysql_query("insert into album (uid,tap) values(".$_SESSION['user'].",'".$tag."')",$link);
 	}
 }
 ?>

@@ -29,6 +29,50 @@
 		      </script>";
 		}
 		?>
+		<?php
+			if(!isset($_SESSION))@session_start();
+			require_once("./lib/MySQL.php");
+			if(!isset($_SESSION['user'])&&isset($_SESSON['email'])&&$_SESSION['mod']==1){
+				$con=connect();
+				@mysql_select_db("user_db");
+				$result=mysql_query("select uid from userinfo where e_mail=".$_SESSION['email']."",$con);
+				$te=mysql_fetch_array();
+				$_SESSION['user']=$te['uid'];
+				mysql_close($con);
+			}
+			if($_SESSION['mod']==1){
+				$link=connect();
+				@mysql_select_db("user_db");
+				$result=mysql_query("select aid from album where uid=".$_SESSION['user']."",$link);
+				$num=mysql_num_rows($result);
+				if($num!=0){
+					$i=1;
+					echo "<script type=\"text/javascript\">" .
+							"function album(id){
+							switch(id)" .
+							"{
+							";
+					while($aid=mysql_fetch_array($result,MYSQL_NUM)){
+						echo "case ".$i.":
+								window.setTimeout(window.location.href=\"album.php?aid=".$aid[0]."\",3);
+										break;
+								";
+						$i=$i+1;
+					}
+					echo"default:
+							window.open(\"action.php?action=newalbum\",\"newframe\",\"width=400,height=400,left=500,top=200,menubar=no,toolbar=no,location=no,scrollbars=no,location=no\")";
+					echo" }
+							}</script>
+					";
+				}else{
+					echo "<script type=\"text/javascript\">" .
+							"function album(id){
+								window.open(\"action.php?action=newalbum\",\"newframe\",\"width=400,height=400,left=500,top=200,menubar=no,toolbar=no,location=no,scrollbars=no,location=no\");" .
+								"
+							}</script>";
+				}
+			}
+		?>
 	</head>
 	<body>
 	<div class="all">
@@ -63,16 +107,16 @@
 	</div>
 	<div id="right">
     <table id="rightshow"><!--����?&#65533;��phpд�Ǹ�����Ŷ~~���ǻ�?&#65533;?��?&#65533;?�����5?&#65533;?�����?&#65533;&#65533;�֣���?&#65533;?����po����5��td��?&#65533;? -->
-    <tr style="padding-top:10px"><td><img src="./images/ablum.jpg" name="b1" onmouseOver="mouseOver1()" onmouseOut="mouseOut1()" class="ablumimage"/>
-							</td><td><img src="./images/ablum.jpg" name="b2" onmouseOver="mouseOver2()" onmouseOut="mouseOut2()" class="ablumimage"/>
-							</td><td><img src="./images/ablum.jpg" name="b3" onmouseOver="mouseOver3()" onmouseOut="mouseOut3()" class="ablumimage"/>
+    <tr style="padding-top:10px"><td><img src="./images/ablum.jpg" name="b1" onmouseOver="mouseOver1()" onmouseOut="mouseOut1()" class="ablumimage" onClick="album(1)"/>
+                            </td><td><img src="./images/ablum.jpg" name="b2" onmouseOver="mouseOver2()" onmouseOut="mouseOut2()" class="ablumimage" onClick="album(2)"/>
+							</td><td><img src="./images/ablum.jpg" name="b3" onmouseOver="mouseOver3()" onmouseOut="mouseOut3()" class="ablumimage" onClick="album(3)"/>
 							</td></tr>
-    <tr style="padding-top:10px"><td><img src="./images/ablum.jpg" name="b4" onmouseOver="mouseOver4()" onmouseOut="mouseOut4()" class="ablumimage"/>
-							</td><td><img src="./images/ablum.jpg" name="b5" onmouseOver="mouseOver5()" onmouseOut="mouseOut5()" class="ablumimage"/>
-							</td><td><img src="./images/ablum.jpg" name="b6" onmouseOver="mouseOver6()" onmouseOut="mouseOut6()" class="ablumimage"/>
+    <tr style="padding-top:10px"><td><img src="./images/ablum.jpg" name="b4" onmouseOver="mouseOver4()" onmouseOut="mouseOut4()" class="ablumimage" onClick="album(4)"/>
+							</td><td><img src="./images/ablum.jpg" name="b5" onmouseOver="mouseOver5()" onmouseOut="mouseOut5()" class="ablumimage" onClick="album(5)"/>
+							</td><td><img src="./images/ablum.jpg" name="b6" onmouseOver="mouseOver6()" onmouseOut="mouseOut6()" class="ablumimage" onClick="album(6)"/>
 							</td></tr>
-    <tr style="padding-top:10px"><td><img src="./images/ablum.jpg" name="b7" onmouseOver="mouseOver7()" onmouseOut="mouseOut7()" class="ablumimage"/>
-							</td><td><img src="./images/ablum.jpg" name="b8" onmouseOver="mouseOver8()" onmouseOut="mouseOut8()" class="ablumimage"/>
+    <tr style="padding-top:10px"><td><img src="./images/ablum.jpg" name="b7" onmouseOver="mouseOver7()" onmouseOut="mouseOut7()" class="ablumimage" onClick="album(7)"/>
+							</td><td><img src="./images/ablum.jpg" name="b8" onmouseOver="mouseOver8()" onmouseOut="mouseOut8()" class="ablumimage" onClick="album(8)"/>
 							</td><td><input type="button" id="listbutton" value ="Order Post"><input type="button" id="listbutton" value ="Pre Post">
 							</td></tr>
     </table>

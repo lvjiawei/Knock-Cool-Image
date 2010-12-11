@@ -19,6 +19,8 @@ class MySQL{
 	function __construct()
 	{
 		$this->con=mysql_connect("localhost","root","");
+		$db=mysql_select_db("user_db");
+		if(!$db)die("Cannot select database:".mysql_error());
 		if(!$this->con){
 			die('Could not connect: ' . mysql_error());
 			return false;
