@@ -144,12 +144,14 @@ if(isset ($_GET['action'])){
 		<body>
 			<div class=\"forget password\">
 			<div class=\"Signback\">
-			<form action=\"action.php\" method=\"post\" onSubmit=\"return checkanswer()\"><table>
-				<tr><td id=\"orange\">Tips:</td><td><br></td>" .
-				"<tr><td></td>><td>type in your album's tag name then create a new album.</td></tr>
+			<form action=\"action.php\" method=\"post\" onSubmit=\"return checkanswer()\">
+				<table>
+				<tr><td id=\"orange\">Tips:</td><td><br></td>".
+				"<tr><td></td><td>Type in your album's tag and then create a new album.</td></tr>
 				<tr><td>Tag:</td><td><input type=\"hidden\" name=\"action\" id=\"action\" value=\"newalbum\"><input type=\"text\" name=\"tag\" id=\"tag\" class=\"text\"></td></tr>
-				<tr><td><input type=\"submit\" value=\"Create new album\" class=\"button\"></td><td><input type=\"button\" value=\"Close\" class=\"button\" onClick=\"window.close()\">
-				</td>
+				<tr><td></td><td><input type=\"submit\" value=\"Create new album\" class=\"albumbutton\"></td>
+				</tr>
+				<tr><td></td><td><input type=\"button\" value=\"Do Nothing\" class=\"albumbutton2\" onClick=\"window.close()\">
 				</tr>
 			</table>
 			</form>
@@ -307,7 +309,7 @@ function newphoto(){
 		}
 }
 function newalbum(){
-	require("/lib/Container.php");
+	require(realpath("./")."/lib/Container.php");
 	$temp=new Container(2);
 	if($temp->newalbum($_POST['tag']))
 		echo "<head>
@@ -386,7 +388,7 @@ function modify()
 	include(realpath("./")."/lib/MySQL.php");
 	$link=connect();
 	$db=mysql_select_db('user_db');
-	$doneornot=array(1=>true,2=>true);
+	$doneornot=array(1=>true,2=>true,3=>true,4=>true,5=>true,6=>true,7=>true,8=>true,9=>true,10=>true,11=>true,12=>true);
 	//$temp=new user(1);
 	if(isset($_POST['name']))
 		$doneornot[1]=mysql_query("update userinfo set nickname='".$_POST['name']."' where uid=".$_SESSION['user']."",$link);
@@ -400,8 +402,34 @@ function modify()
 		else
 			$doneornot[2]=false;
 	}
-	if($doneornot[1]&&isset($_POST['name']))$_SESSION['nickname']=$_POST['name'];
-	if($doneornot[1]&&$doneornot[2])
+	if(isset($_POST['share1'])&&isset($_POST['sharename1']))
+	{
+		$doneornot[3]=mysql_query("update shared set first='".$_POST['share1']."' where uid=".$_SESSION['user']."",$link);
+		$doneornot[4]=mysql_query("update shared set firstname='".$_POST['sharename1']."' where uid=".$_SESSION['user']."",$link);
+	}
+	if(isset($_POST['share2'])&&isset($_POST['sharename2']))
+	{
+		$doneornot[5]=mysql_query("update shared set second='".$_POST['share2']."' where uid=".$_SESSION['user']."",$link);
+		$doneornot[6]=mysql_query("update shared set secondname='".$_POST['sharename2']."' where uid=".$_SESSION['user']."",$link);
+	}
+	if(isset($_POST['share3'])&&isset($_POST['sharename3']))
+	{
+		$doneornot[7]=mysql_query("update shared set third='".$_POST['share3']."' where uid=".$_SESSION['user']."",$link);
+		$doneornot[8]=mysql_query("update shared set thirdname='".$_POST['sharename3']."' where uid=".$_SESSION['user']."",$link);
+	}
+	if(isset($_POST['share4'])&&isset($_POST['sharename4']))
+	{
+		$doneornot[9]=mysql_query("update shared set forth='".$_POST['share4']."' where uid=".$_SESSION['user']."",$link);
+		$doneornot[10]=mysql_query("update shared set forthname='".$_POST['sharename4']."' where uid=".$_SESSION['user']."",$link);
+	}
+	if(isset($_POST['share5'])&&isset($_POST['sharename5']))
+	{
+		$doneornot[11]=mysql_query("update shared set fifth='".$_POST['share5']."' where uid=".$_SESSION['user']."",$link);
+		$doneornot[12]=mysql_query("update shared set fifthname='".$_POST['sharename5']."' where uid=".$_SESSION['user']."",$link);
+	}
+	if($doneornot[1]&&isset($_POST['name']))
+		$_SESSION['nickname']=$_POST['name'];
+	if($doneornot[1]&&$doneornot[2]&&$doneornot[3]&&$doneornot[4]&&$doneornot[5]&&$doneornot[6]&&$doneornot[7]&&$doneornot[8]&&$doneornot[9]&&$doneornot[10]&&$doneornot[11]&&$doneornot[12])
 			echo "<head>
 								<title>My Pictrue</title>
 								<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
@@ -423,6 +451,61 @@ function modify()
 			if(isset($_POST['name']))
 				$_SESSION['nickname']=$_POST['name'];
 		}
+		if(isset($_POST['share1'])&&isset($_POST['sharename1'])&&!$doneornot[3]&&!$doneornot[4])
+			$share="failed to change your sharing info,please try again later!";
+		else
+			{
+				$share1="";
+				if(isset($_POST['share1'])&&isset($_POST['sharename1']))
+				{
+					$_SESSION['fisrt']=$_POST['share1'];
+					$_SESSION['fisrtname']=$_POST['sharename1'];
+				}
+			}
+		if(isset($_POST['share1'])&&isset($_POST['sharename1'])&&!$doneornot[5]&&!$doneornot[6])
+			$share="failed to change your sharing info,please try again later!";
+		else
+			{
+				$share2="";
+				if(isset($_POST['share2'])&&isset($_POST['sharename2']))
+				{
+					$_SESSION['second']=$_POST['share2'];
+					$_SESSION['secondname']=$_POST['sharename2'];
+				}
+			}
+		if(isset($_POST['share3'])&&isset($_POST['sharename3'])&&!$doneornot[7]&&!$doneornot[8])
+			$share="failed to change your sharing info,please try again later!";
+		else
+			{
+				$share3="";
+				if(isset($_POST['share3'])&&isset($_POST['sharename3']))
+				{
+					$_SESSION['third']=$_POST['share3'];
+					$_SESSION['thirdname']=$_POST['sharename3'];
+				}
+			}
+		if(isset($_POST['share4'])&&isset($_POST['sharename4'])&&!$doneornot[9]&&!$doneornot[10])
+			$share="failed to change your sharing info,please try again later!";
+		else
+			{
+				$share4="";
+				if(isset($_POST['share4'])&&isset($_POST['sharename4']))
+				{
+					$_SESSION['forth']=$_POST['share4'];
+					$_SESSION['forthname']=$_POST['sharename4'];
+				}
+			}
+		if(isset($_POST['share5'])&&isset($_POST['sharename5'])&&!$doneornot[11]&&!$doneornot[12])
+			$share="failed to change your sharing info,please try again later!";
+		else
+			{
+				$share5="";
+				if(isset($_POST['share5'])&&isset($_POST['sharename5']))
+				{
+					$_SESSION['fifth']=$_POST['share5'];
+					$_SESSION['fifthname']=$_POST['sharename5'];
+				}
+			}
 		if(isset($_POST['newps'])&&!$doneornot[2])
 			$password="failed to change the password,please try again later!";
 		else
@@ -436,7 +519,7 @@ function modify()
 				</head>
 				<body>
 				<table width='100%' align=center><tr><td align=center>
-                  ".$name."<br> ".$password."<br>
+                  ".$name."<br> ".$password."<br>".$share1."<br>".$share2."<br>".$share3."<br>".$share4."<br>".$share5."<br>
                  <font color=greeen><a href='user.php'>jump to the user page</a></font>
                  </td></tr></table>
 				 </body>";
@@ -445,7 +528,8 @@ function modify()
 }
 function signup()
 {
-	require_once("/lib/MySQL.php");
+
+	require_once(realpath("./")."/lib/MySQL.php");
 		if(isset($_SESSION['email']))
 			unset($_SESSION['email']);
 		$link=connect();

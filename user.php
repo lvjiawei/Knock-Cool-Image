@@ -32,19 +32,90 @@
 		<?php
 			if(!isset($_SESSION))@session_start();
 			require_once("./lib/MySQL.php");
-			if(!isset($_SESSION['user'])&&isset($_SESSON['email'])&&$_SESSION['mod']==1){
+			if(!isset($_SESSION['user'])&&isset($_SESSON['email'])&&$_SESSION['mod']==1){//注册后第一次登陆的初始化
 				$con=connect();
 				@mysql_select_db("user_db");
 				$result=mysql_query("select uid from userinfo where e_mail=".$_SESSION['email']."",$con);
 				$te=mysql_fetch_array();
 				$_SESSION['user']=$te['uid'];
+				
+				//第一个共享
+				$result2=@mysql_query("select first from shared where uid=".$_SESSION['user']."",$link);
+				$result3=@mysql_query("select firstname from shared where uid=".$_SESSION['user']."",$link);
+				$te2=@mysql_fetch_array($result2);
+				$te3=@mysql_fetch_array($result3);
+				$_SESSION['first']=$te2['first'];
+				$_SESSION['firstname']=$te3['firstname'];
+				//第2个共享
+				$result4=@mysql_query("select second from shared where uid=".$_SESSION['user']."",$con);
+				$result5=@mysql_query("select secondname from shared where uid=".$_SESSION['user']."",$con);
+				$te4=@mysql_fetch_array($result4);
+				$te5=@mysql_fetch_array($result5);
+				$_SESSION['second']=$te4['second'];
+				$_SESSION['secondname']=$te5['secondname'];
+				//第3个共享
+				$result6=@mysql_query("select third from shared where uid=".$_SESSION['user']."",$con);
+				$result7=@mysql_query("select thirdname from shared where uid=".$_SESSION['user']."",$con);
+				$te6=@mysql_fetch_array($result6);
+				$te7=@mysql_fetch_array($result7);
+				$_SESSION['third']=$te6['third'];
+				$_SESSION['thirdname']=$te7['thirdname'];
+				//第4个共享
+				$result8=@mysql_query("select forth from shared where uid=".$_SESSION['user']."",$con);
+				$result9=@mysql_query("select forthname from shared where uid=".$_SESSION['user']."",$con);
+				$te8=@mysql_fetch_array($result8);
+				$te9=@mysql_fetch_array($result9);
+				$_SESSION['forth']=$te8['forth'];
+				$_SESSION['forthname']=$te9['forthname'];
+				//第5个共享
+				$result10=@mysql_query("select fifth from shared where uid=".$_SESSION['user']."",$con);
+				$result11=@mysql_query("select fifthname from shared where uid=".$_SESSION['user']."",$con);
+				$te10=@mysql_fetch_array($result10);
+				$te11=@mysql_fetch_array($result11);
+				$_SESSION['fifth']=$te10['fifth'];
+				$_SESSION['fifthname']=$te11['fifthname'];
 				mysql_close($con);
 			}
 			if($_SESSION['mod']==1){
 				$link=connect();
 				@mysql_select_db("user_db");
+				$result2=@mysql_query("select first from shared where uid=".$_SESSION['user']."",$link);
+				$result3=@mysql_query("select firstname from shared where uid=".$_SESSION['user']."",$link);
+				$te2=@mysql_fetch_array($result2);
+				$te3=@mysql_fetch_array($result3);
+				$_SESSION['first']=$te2['first'];
+				$_SESSION['firstname']=$te3['firstname'];
+				//第2个共享
+				$result4=@mysql_query("select second from shared where uid=".$_SESSION['user']."",$con);
+				$result5=@mysql_query("select secondname from shared where uid=".$_SESSION['user']."",$con);
+				$te4=@mysql_fetch_array($result4);
+				$te5=@mysql_fetch_array($result5);
+				$_SESSION['second']=$te4['second'];
+				$_SESSION['secondname']=$te5['secondname'];
+				//第3个共享
+				$result6=@mysql_query("select third from shared where uid=".$_SESSION['user']."",$con);
+				$result7=@mysql_query("select thirdname from shared where uid=".$_SESSION['user']."",$con);
+				$te6=@mysql_fetch_array($result6);
+				$te7=@mysql_fetch_array($result7);
+				$_SESSION['third']=$te6['third'];
+				$_SESSION['thirdname']=$te7['thirdname'];
+				//第4个共享
+				$result8=@mysql_query("select forth from shared where uid=".$_SESSION['user']."",$con);
+				$result9=@mysql_query("select forthname from shared where uid=".$_SESSION['user']."",$con);
+				$te8=@mysql_fetch_array($result8);
+				$te9=@mysql_fetch_array($result9);
+				$_SESSION['forth']=$te8['forth'];
+				$_SESSION['forthname']=$te9['forthname'];
+				//第5个共享
+				$result10=@mysql_query("select fifth from shared where uid=".$_SESSION['user']."",$con);
+				$result11=@mysql_query("select fifthname from shared where uid=".$_SESSION['user']."",$con);
+				$te10=@mysql_fetch_array($result10);
+				$te11=@mysql_fetch_array($result11);
+				$_SESSION['fifth']=$te10['fifth'];
+				$_SESSION['fifthname']=$te11['fifthname'];
+				
 				$result=mysql_query("select aid from album where uid=".$_SESSION['user']."",$link);
-				$num=mysql_num_rows($result);
+				$num=@mysql_num_rows($result);
 				if($num!=0){
 					$i=1;
 					echo "<script type=\"text/javascript\">" .
@@ -90,11 +161,16 @@
     </table>
     </form>
     <table><!--����?&#65533;��phpд�Ǹ�����Ŷ~~���ǻ�?&#65533;?��?&#65533;?�����5?&#65533;?�����?&#65533;&#65533;�֣���?&#65533;?����po����5��td��?&#65533;? -->
-    <tr><td><a href="">share 1</a></td></tr>
-    <tr><td><a href="">share 2</a></td></tr>
-    <tr><td><a href="">share 3</a></td></tr>
-    <tr><td><a href="">share 4</a></td></tr>
-    <tr><td><a href="">share 5</a></td></tr>
+    <tr><td><a href="<?php $share1=$_SESSION['first']; echo "$share1";?>">
+			<?php $sharename1=$_SESSION['firstname']; echo "$sharename1";?></a></td></tr>
+    <tr><td><a href="<?php $share2=$_SESSION['second']; echo "$share2";?>">
+			<?php $sharename2=$_SESSION['secondname']; echo "$sharename2";?></a></td></tr>
+    <tr><td><a href="<?php $share3=$_SESSION['third']; echo "$share3";?>">
+			<?php $sharename3=$_SESSION['thirdname']; echo "$sharename3";?></a></td></tr>
+    <tr><td><a href="<?php $share4=$_SESSION['forth']; echo "$share4";?>">
+			<?php $sharename4=$_SESSION['forthname']; echo "$sharename4";?></a></td></tr>
+    <tr><td><a href="<?php $share5=$_SESSION['fifth']; echo "$share5";?>">
+			<?php $sharename5=$_SESSION['fifthname']; echo "$sharename5";?></a></td></tr>
     </table>
     <div>
     <form action="action.php" method="post">

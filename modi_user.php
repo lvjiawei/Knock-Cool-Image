@@ -52,7 +52,7 @@
 	                             <!-- 加了这些 -->
 	<div class="all">
 		<div style="font-size:150%">
-				<p>My Pictrue</p>
+				<a href="user.php"><img src="./images/home.png" class="home_logo">K-Image首页</a>
 		</div>
 		<div class="left">
 			<div><!--user头像，还有修改资料页面-->
@@ -67,13 +67,18 @@
 							<tr><td><input type="text" name="search" id="search" class="text" /></td><td><input type="submit" value="search" class="button1" /></td></tr>
 					</table>
 				</form>
-				<table><!--这里要用php写那个分享哦~~就是获取数据库里的5条分享（名字，地址），po到这5个td上面 -->
-					<tr><td><a href="">share 1</a></td></tr>
-					<tr><td><a href="">share 2</a></td></tr>
-					<tr><td><a href="">share 3</a></td></tr>
-					<tr><td><a href="">share 4</a></td></tr>
-					<tr><td><a href="">share 5</a></td></tr>
-				</table>
+				<table><!--����?&#65533;��phpд�Ǹ�����Ŷ~~���ǻ�?&#65533;?��?&#65533;?�����5?&#65533;?�����?&#65533;&#65533;�֣���?&#65533;?����po����5��td��?&#65533;? -->
+    <tr><td><a href="<?php $share1=$_SESSION['first']; echo "$share1";?>">
+			<?php $sharename1=$_SESSION['firstname']; echo "$sharename1";?></a></td></tr>
+    <tr><td><a href="<?php $share2=$_SESSION['second']; echo "$share2";?>">
+			<?php $sharename2=$_SESSION['secondname']; echo "$sharename2";?></a></td></tr>
+    <tr><td><a href="<?php $share3=$_SESSION['third']; echo "$share3";?>">
+			<?php $sharename3=$_SESSION['thirdname']; echo "$sharename3";?></a></td></tr>
+    <tr><td><a href="<?php $share4=$_SESSION['forth']; echo "$share4";?>">
+			<?php $sharename4=$_SESSION['forthname']; echo "$sharename4";?></a></td></tr>
+    <tr><td><a href="<?php $share5=$_SESSION['fifth']; echo "$share5";?>">
+			<?php $sharename5=$_SESSION['fifthname']; echo "$sharename5";?></a></td></tr>
+    </table>
 			</div>
 			<div>
 				<form action="action.php" method="post">
@@ -88,7 +93,7 @@
 			<div>
 			<!--上传头像-->
 			<form name="form3" action="action.php" method="post" enctype="multipart/form-data">
-			   <table>
+			   <table frame="below">
 			   <tr><td id="symbol">上传头像</td><td><input type="hidden" id="avatar" name="avatar"></td><td></td></tr>
 
 			   <tr><td></td><td></td>
@@ -103,9 +108,8 @@
 			<div>
 			<form name="form1" action="action.php" method="post">
 				<table frame="below">
-                <tr><td id="symbol">修改资料</td><td></td><td></td></tr>
-				<tr><td></td><td id="orange"><p align="left">昵称：</p></td><td><input type="text" name="name" value="<?php $nickname=$_SESSION['nickname']; echo "$nickname"?>"
-				id="name" class="text"></td></tr>
+                <tr><td id="symbol">修改资料</td><td></td><td></td><td></td></tr>
+				<tr><td></td><td id="orange"><p align="left">昵称：</p></td><td><input type="text" name="name" value="<?php $nickname=$_SESSION['nickname']; echo "$nickname"?>" id="name" class="text"></td><td></td></tr>
 				<tr><td><input type="hidden" id="action" name="action" value="modify"></td>
 					<td><input type="submit" value="Save" class="button3">
 					</td><td></td>
@@ -116,10 +120,10 @@
 
 			<div>
 			<form name="form2" action="action.php" method="post" onsubmit="return checkpassword()">
-			   <table>
+			   <table frame="below">
 			   <tr><td id="symbol">修改密码</td><td></td><td></td></tr>
 
-			   <tr><td></td><td id="orange"><p align="left">旧密码：</p></td>
+			   <tr><td></td><td id="orange"align="left">旧密码：</td>
 			        <td><input type="password" name="orips" id="orips" class="text"></td>
 			   </tr>
 			   <tr><td></td><td id="orange"><p align="left">新密码：</p></td>
@@ -129,6 +133,24 @@
 			   <input type="submit" value="ChangePS" class="button3">
 			   </td></td><td></tr>
 			   </table>
+			</form>
+			</div>
+			<div>
+			<form name="form1" action="action.php" method="post">
+				<table frame="below">
+                <tr><td id="symbol">设置分享</td><td></td><td></td><td></td></tr>
+				<tr><td></td><td id="orange" align="left">分享1：<td><input type="text" name="sharename1" id="sharename1" class="text"></td><td><input type="text" name="share1" id="share1" class="text"></td></tr>
+				<tr style="font-size:70%"><td></td><td align="right">比如：</td><td>新浪微博</td><td>http://t.sina.com.cn/***</td></tr>
+				<tr><td></td><td id="orange" align="left">分享2：</td><td><input type="text" name="sharename2" id="sharename2" class="text"></td><td><input type="text" name="share2" id="share2" class="text"></td></tr>
+				<tr><td></td><td id="orange" align="left">分享3：</td><td><input type="text" name="sharename3" id="sharename3" class="text"></td><td><input type="text" name="share3" id="share3" class="text"></td></tr>
+				<tr><td></td><td id="orange" align="left">分享4：</td><td><input type="text" name="sharename4" id="sharename4" class="text"></td><td><input type="text" name="share4" id="share4" class="text"></td></tr>
+				<tr><td></td><td id="orange" align="left">分享5：</td><td><input type="text" name="sharename5" id="sharename5" class="text"></td><td><input type="text" name="share5" id="share5" class="text"></td></tr>
+				
+				<tr><td><input type="hidden" id="action" name="action" value="modify"></td>
+					<td><input type="submit" value="Save" class="button3">
+					</td><td></td>
+				</tr>
+			</table>
 			</form>
 			</div>
 		</div>

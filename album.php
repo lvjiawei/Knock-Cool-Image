@@ -94,12 +94,17 @@
     <tr><td><input type="text" name="search" id="search" class="text" /></td><td><input type="submit" name="search" id="search" value="search" class="button1" /></td></tr>
     </table>
     </form>
-    <table><!--?????&#65533;??phpд????????~~??????&#65533;????&#65533;??????5?&#65533;???????&#65533;&#65533;??????&#65533;?????po????5??td???&#65533;? -->
-    <tr><td><a href="">share 1</a></td></tr>
-    <tr><td><a href="">share 2</a></td></tr>
-    <tr><td><a href="">share 3</a></td></tr>
-    <tr><td><a href="">share 4</a></td></tr>
-    <tr><td><a href="">share 5</a></td></tr>
+    <table><!--����?&#65533;��phpд�Ǹ�����Ŷ~~���ǻ�?&#65533;?��?&#65533;?�����5?&#65533;?�����?&#65533;&#65533;�֣���?&#65533;?����po����5��td��?&#65533;? -->
+    <tr><td><a href="<?php $share1=$_SESSION['first']; echo "$share1";?>">
+			<?php $sharename1=$_SESSION['firstname']; echo "$sharename1";?></a></td></tr>
+    <tr><td><a href="<?php $share2=$_SESSION['second']; echo "$share2";?>">
+			<?php $sharename2=$_SESSION['secondname']; echo "$sharename2";?></a></td></tr>
+    <tr><td><a href="<?php $share3=$_SESSION['third']; echo "$share3";?>">
+			<?php $sharename3=$_SESSION['thirdname']; echo "$sharename3";?></a></td></tr>
+    <tr><td><a href="<?php $share4=$_SESSION['forth']; echo "$share4";?>">
+			<?php $sharename4=$_SESSION['forthname']; echo "$sharename4";?></a></td></tr>
+    <tr><td><a href="<?php $share5=$_SESSION['fifth']; echo "$share5";?>">
+			<?php $sharename5=$_SESSION['fifthname']; echo "$sharename5";?></a></td></tr>
     </table>
     <div>
     <form action="action.php" method="post">
