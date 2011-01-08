@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title><?php echo $this->escape($this->title);?></title>
+		<meta http-equiv="Content-Language" content="en" />
+		<meta name="GENERATOR" content="Zend Studio" />
+		<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+		<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl;?>/public/css/user.css" />
+	</head>
+	<body>
+	<div class="all">
+		<div class="left">
+			<div><!--user??&#65533;???????????????&#65533;?-->
+				<img src="<?php echo $this->escape($this->avatar);?>"></img>
+			</div>
+		<div id="name">
+			<?php echo $this->escape($this->nickname);?><!-- ?????????&#65533;&#65533;-->
+		</div>
+		<div>
+			<form action="" method="post">
+				<table><!--??????&#65533;?????????????&#65533;??????&#65533;?????????po???&#65533;?-->
+				<tr><td><input type="text" name="search" id="search" class="text" /></td><td><input type="submit" name="action" id="action" value="搜索用户" class="button1" /></td></tr>
+				</table>
+			</form>
+			<table><!--?????&#65533;??phpд????????~~??????&#65533;????&#65533;??????5?&#65533;???????&#65533;&#65533;??????&#65533;?????po????5??td???&#65533;? -->
+		 
+			</table>
+			<div>
+			<form action="<?php echo $this->url(array("controller" => "user","action" => "exit"));?>" method="post">
+			 <table><tr><td><input type="submit" value="离开" class="button"></td></tr>
+			</table>
+			</form>
+			<form action="<?php echo $this->url(array("controller" => "user","action" => "manager"));?>" method="post">
+			 <table><tr><td><input type="hidden" id="action" name="action" value="manager" class="button"/><input type="submit" value="用户信息" class="button"></td></tr>
+			</table>
+			</form>
+			</div>
+			<span><a href="">TEAM 0F US</a></span>
+		</div>
+	</div>
+	<div id="right">
+    <table id="rightshow"><!--?????&#65533;??phpд????????~~??????&#65533;????&#65533;??????5?&#65533;???????&#65533;&#65533;??????&#65533;?????po????5??td???&#65533;? -->
+    <tr style="padding-top:10px"><td><img src="<?php echo $this->firstphoto;?>" name="b1" class="ablumimage"/>
+                            </td><td><?php echo $this->first;?>
+							</td><td>
+							</td></tr>
+    <tr style="padding-top:10px"><td><img src="<?php echo $this->secondphoto;?>" name="b2" class="ablumimage"/>
+							</td><td><?php echo $this->second;?>
+							</td><td>
+							</td></tr>
+   <tr style="padding-top:10px"><td><img src="<?php echo $this->thirdphoto;?>" name="b3" class="ablumimage"/>
+							</td><td><?php echo $this->third;?>
+							</td><td><?php echo $this->nextpage; echo $this->prepage;?>
+							</td></tr>
+    </table>
+	</div>
+	</div>
+	</body>
+</html>

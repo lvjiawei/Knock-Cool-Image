@@ -1,0 +1,28 @@
+<html>
+<head>
+<title><?php echo $this->escape($this->title); ?></title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Zend Studio" />
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl;?>/public/css/index.css" />
+</head>
+<body>
+<div class="signback">
+<div class="Sign"><tr><td id="blue"><h2><?php echo $this->escape($this->passquestion);
+/*if(isset($this->control)):
+if($this->control):
+echo $this->escape($this->password);
+unset($this->control);
+endif;
+endif;*/?></h2></td></tr></div>
+<div class="Sign">
+	<?php echo $this->form;?>
+	<tr><td><input type="button" value="<<Back" onClick="history.go(-1)">
+<input type="button" value=">>index" onClick="window.location.href='index'">
+</td></tr>
+</div>	
+</div>
+
+</body>
+</html>
+

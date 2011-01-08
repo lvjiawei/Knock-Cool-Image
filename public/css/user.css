@@ -1,0 +1,107 @@
+body
+{
+	background:url("../images/1.jpg") repeat scroll 66% 33% transparent;
+	font-family:"Microsoft YaHei";
+}
+.all
+{
+	margin-left: auto;
+	margin-right: auto;
+	/*border:#D2B48C solid medium;
+	height:auto;
+	*/
+	width:1000px;
+	
+}
+#title
+{
+	height:40px;
+}
+.left
+{
+	float:left;
+	width:270px;
+	height:600px;
+}
+#right
+{
+	width:450px;
+	height:auto;
+    float:left;
+}
+
+#tool
+{
+	width:200px;
+	float:left;
+}
+
+
+#team_right
+{
+	float:left;
+	width:500px;
+	height:auto;
+}
+.commentDiv
+{
+	position: absolute;
+	left: 400px;
+	top: 510px;
+}
+.avatarimage
+{
+	max-width: 200px;
+	max-height: 200px;
+}
+.home_logo
+{
+	max-width: 50px;
+	max-height: 50px;
+}
+.ablumimage
+{
+	max-width: 220px;
+	max-height: 170px;
+	margin: 0 auto;
+}
+.photo
+{
+	max-width:440px;
+	max-height:340px;
+}
+*html.photo{
+width:expression(this.width>440&&this.width>this.height?440:auto);
+height:expression(this.height>340?340:auto);
+}
+
+*html.ablumimage{
+width:expression(this.width>220&&this.width>this.height?220:auto);
+height:expression(this.height>170?170:auto);
+}
+*html.avatarimage{
+width:expression(this.width>200&&this.width>this.height?200:auto);
+height:expression(this.height>200?200:auto);
+}
+#ymd
+{
+	width:70px;
+}
+#listbutton
+{
+	width:220px;
+	height:40px;
+}
+#rightshow td
+{
+    opacity: 0.7;
+	width: 230px;
+	height: 170px;
+	text-align:center;
+}/*
+#name
+{
+	text-align:center;
+	¡bbackground-color: #FFF;
+}
+*/

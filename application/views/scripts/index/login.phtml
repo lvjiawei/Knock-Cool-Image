@@ -1,0 +1,31 @@
+<html>
+<head>
+<title><?php echo $this->escape($this->title); ?></title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Zend Studio" />
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl;?>/public/css/index.css" />
+<script type="text/javascript" src="<?php echo $this->baseUrl;?>/public/scripts/check.js"></script>
+</head>
+<body>
+<div class="signback">
+<h2>Welcome!</h2>
+<div class="Sign">
+	<form action="<?php echo $this->url(array("controller" => "index","action" => "login"));?>" method="post" onSubmit="return signin_check()">
+		<table>
+				<tr><td id="orange">Your Email:</td><td><input type="text" name="email" id="email" class="text"></td></tr>
+				<tr><td id="orange">Password:</td><td><input type="password" name="pw" id="pw" class="text"></td></tr>
+				<tr><td></td>
+					<td><input type="submit" value="Log In" class="button1">					   
+					</td>
+				</tr>
+				<tr><td></td><td><input type="button" value="<<Back" onClick="history.go(-1)">
+				<input type="button" value=">>index" onClick="window.location.href='index'">
+				</td></tr>
+		</table>
+	</form>
+</div>		
+</div>
+</body>
+</html>
+

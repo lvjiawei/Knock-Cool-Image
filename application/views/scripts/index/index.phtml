@@ -1,0 +1,27 @@
+<html>
+<head>
+<title><?php echo $this->escape($this->title); ?></title>
+<meta http-equiv="Content-Language" content="en" />
+<meta name="GENERATOR" content="Zend Studio" />
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl;?>/public/css/index.css" />
+</head>
+<body>
+<div class="signback">
+<h2><?php echo $this->escape($this->error); ?></h2>
+<div class="Sign">
+	<form action="<?php echo $this->url(array("controller" => "index","action" => "index"));?>" method="post">
+		<table>
+				<tr><td><input type="hidden" id="action" name="action" value=""></td>
+				<td><input type="submit" value="Log In" class="button1" onClick="var temp=document.getElementById('action').value='login';"></input>	
+				<input type="submit" value="Foget" class="button1" onClick="var temp=document.getElementById('action').value='forget'";>								   
+				</td>
+				<tr><td></td><td><input type="submit" value="Signup" class="button2" onClick="var temp=document.getElementById('action').value='signup'";></td></tr>	
+			</tr>			
+		</table>
+	</form>
+</div>		
+</div>
+</body>
+</html>
+
