@@ -1,0 +1,18 @@
+【文件路径】
+单元测试：
+	单元测试报告------Testing_Practices/Unit Testing/单元测试报告.doc
+	单元测试脚本-----Testing_Practices/Unit Testing/AlbumControllerTest.php
+				-----Testing_Practices/Unit Testing/UserControllerTest.php
+系统/集成测试：
+	功能/UI测试报告------Testing_Practices/System or Integration/Functional or UI Testing.doc
+	功能/UI测试脚本------Testing_Practices/System or Integration/SignUpTest
+				   ------Testing_Practices/System or Integration/LogInTest
+				   ------Testing_Practices/System or Integration/UploadPhotoTest
+	可用性测试报告-------Testing_Practices/System or Integration/Useability Testing.doc
+	可用性测试记录脚本---Testing_Practices/System or Integration/wanghongdanTest
+					  ---Testing_Practices/System or Integration/yangxiaoyuTest
+					  ---Testing_Practices/System or Integration/laitaoTest
+	本地化/国际化测试报告：Testing_Practices/System or Integration/Localization or Internationalization Testing.doc
+Bug（issu）Tracker:
+	Bug追踪------Testing_Practices/BugTracker.xls(由于连不上小组的网站knockCoolImage.serw5.com，所以把Bug追踪以表格的形式抄写一份)
+
