@@ -3,24 +3,167 @@
 	background:url("../images/1.jpg") repeat scroll 66% 33% transparent;
 	font-family:"Microsoft YaHei";
 }*/
+.all
+{
+	margin-left: auto;
+	margin-right: auto;
+	/*border:#D2B48C solid medium;
+	height:auto;
+	*/
+	width:1000px;
+	
+}
+ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.titlebar
+{
+	background-color:#F4F4F4;
+	clear:both;
+	height:30px;
+	margin:0;
+	padding:0;
+	margin-bottom:20px;
+	width:100%;
+}
+.titlein
+{
+	margin:0 auto;
+	width:950px;
+	padding:0;
+}
+
+.item1{
+	float:left;
+	margin:0;
+	padding:0;
+	font-size:12px;
+	display:block;
+	margin-top:5px;
+}
+.item1 li{
+	display:inline;
+	margin:2px 20px 0 0;
+}
+.item2{
+	float:right;
+	margin:0;
+	padding:0;
+	margin-top:5px;
+	display:block;
+}
+label{
+	display:inline-block;
+	float:left;
+	font-size:14px;
+	line-height:30px;
+	margin-right:15px;
+	text-align:right;
+	vertical-align:middle;
+	width:60px;
+	text-align:center;
+	background-color:white;
+}
+.pcomment{
+	display:inline-block;
+	width:450px;
+}
+.ccontent{
+	float:right;
+	width:370px;
+}
+#title
+{
+	height:40px;
+}
 .left
 {
 	float:left;
-	width:300px;
-	height:auto;
+	width:270px;
 	height:600px;
+}
+#right
+{
+	width:450px;
+	height:auto;
+    float:left;
+}
+
+#tool
+{
+	width:200px;
+	float:left;
+}
+
+
+#team_right
+{
+	float:left;
+	width:500px;
+	height:auto;
+}
+.commentDiv
+{
+	position: absolute;
+	left: 400px;
+	top: 510px;
 }
 .avatarimage
 {
 	max-width: 200px;
 	max-height: 200px;
 }
+.home_logo
+{
+	max-width: 50px;
+	max-height: 50px;
+}
+.ablumimage
+{
+	max-width: 220px;
+	max-height: 170px;
+	margin: 0 auto;
+}
+.photo
+{
+	max-width:440px;
+	max-height:340px;
+}
+*html.photo{
+width:expression(this.width>440&&this.width>this.height?440:auto);
+height:expression(this.height>340?340:auto);
+}
+
+*html.ablumimage{
+width:expression(this.width>220&&this.width>this.height?220:auto);
+height:expression(this.height>170?170:auto);
+}
 *html.avatarimage{
 width:expression(this.width>200&&this.width>this.height?200:auto);
 height:expression(this.height>200?200:auto);
 }
-.name
+#ymd
+{
+	width:70px;
+}
+#listbutton
+{
+	width:220px;
+	height:40px;
+}
+#rightshow td
+{
+    opacity: 0.7;
+	width: 230px;
+	height: 170px;
+	background-color:white;
+	text-align:center;
+}/*
+#name
 {
 	text-align:center;
-	background-color: #FFF;
+	¡bbackground-color: #FFF;
 }
+*/

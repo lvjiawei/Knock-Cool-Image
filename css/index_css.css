@@ -1,16 +1,10 @@
-
 body
 {
 	background:url("../images/1.jpg") repeat scroll 66% 33% transparent;
 	font-family:"Microsoft YaHei";
+	margin:0;
 }
-.all
-{
-	margin-left: auto;
-	margin-right: auto;
-	/*border:#D2B48C solid medium;
-	*/width:1000px;
-}
+
 .button1
 {
 	font-family:"Microsoft YaHei";
@@ -71,6 +65,16 @@ body
 	float:center;
 	color:white;
 }
+.toolbutton
+{	
+	border:0;
+	cursor:pointer;
+	background-color:Transparent;
+	background-image:url("../images/tool_button.png");
+	font-family:"Microsoft YaHei";
+	width:45px;
+	height:43px;
+}
 #orange
 {
 	color:black;
@@ -80,7 +84,7 @@ body
 {
 	color:orange;
 	font-weight:bold;
-	font-size:150%;
+	font-size:130%;
 	text-align:center;
 }
 #symbol
@@ -90,10 +94,6 @@ body
 	font-size:120%;
 	text-align:right;	
 }
-#ymd
-{
-	width:50px;
-}
 .text
 {
     border-color:blue;
@@ -102,14 +102,16 @@ body
 }
 .signback
 {
-	width:290px;
-	height: 211px;
+	
+	margin-left: auto;
+	margin-right: auto;
+	width:800px;
+	opacity: 0.9;
+	height: 794px;
 	position:relative;
-	background-image: url(../images/signback.png);
-	background-repeat:no-repeat;
-	left:500px;
-	top:150px;
-	align:center;
+	background-image: url("../images/signback.png");
+	/*background-repeat:no-repeat;
+	*/align:center;
 	
 }
 h2
@@ -123,7 +125,7 @@ h2
 	width:270px;
 	height:auto;
 	position:relative;
-	top:0px;
-	margin-left:auto; margin-right: auto;
+	top:370px;
+	left:300px; 
 	margin-top:auto; margin-bottom: auto;
 }

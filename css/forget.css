@@ -1,0 +1,142 @@
+body
+{
+	/*background:url("../images/forget.jpg") repeat scroll 22% 11% transparent;
+	*/font-family:"Microsoft YaHei";
+}
+
+.button1
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:60px;
+	height:25px;
+	background-image:url("../images/button1.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+	float:left;
+}
+.button2
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:95px;
+	height:33px;
+	background-image:url("../images/button.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+}
+.albumbutton
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:160px;
+	height:32px;
+	background-image:url("../images/albumbutton.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+	float:left;
+}
+.albumbutton2
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:160px;
+	height:32px;
+	background-image:url("../images/albumbutton2.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+	float:left;
+}
+.button3
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:90px;
+	height:25px;
+	background-image:url("../images/button3.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+	float:left;
+}
+.button4
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:220px;
+	height:32px;
+	background-image:url("../images/button4.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+	float:left;
+}
+.button5
+{
+	font-family:"Microsoft YaHei";
+	background-color:Transparent;
+	width:60px;
+	height:25px;
+	background-image:url("../images/button5.png");
+	border:0;
+	cursor:pointer;
+	font-weight:bold;
+	float:center;
+	color:white;
+}
+#orange
+{
+	color:black;
+	font-weight:bold;
+}
+#blue
+{
+	color:orange;
+	font-weight:bold;
+	font-size:150%;
+	text-align:center;
+}
+#symbol
+{        
+	color:orange;
+	font-weight:bold;
+	font-size:120%;
+	text-align:right;	
+}
+.text
+{
+    border-color:blue;
+    border-width: thin;
+    border-style: solid;
+}
+.signback
+{
+	width:290px;
+	height: 211px;
+	position:relative;
+	/*background-color:#aa4433;
+	*/background-repeat:no-repeat;
+	left:40px;
+	top:80px;
+	align:center;
+	
+}
+h2
+{
+	position:relative;
+	top:10px;
+	text-align:center;
+}
+.Sign
+{
+	width:270px;
+	height:auto;
+	position:relative;
+	top:0px;
+	margin-left:auto; margin-right: auto;
+	margin-top:auto; margin-bottom: auto;
+}

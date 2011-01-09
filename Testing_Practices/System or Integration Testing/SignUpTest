@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/lvjiawei-Knock-Cool-Image-version1" />
+<title>SignUpTest</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SignUpTest</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/lvjiawei-Knock-Cool-Image-version1/index.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='注册帐号']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>375633799@qq.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps2</td>
+	<td>asdf1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>小孩不笨</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwquestion</td>
+	<td>星期几</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwanswer</td>
+	<td>星期1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='I accept. Create my account.']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=click here</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='注册帐号']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>375633799@qq.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps2</td>
+	<td>asdf1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>小孩不笨</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwquestion</td>
+	<td>星期几</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwanswer</td>
+	<td>星期1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='I accept. Create my account.']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=click here</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='注册帐号']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps2</td>
+	<td>asdf1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>小孩不笨</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwquestion</td>
+	<td>星期几</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwanswer</td>
+	<td>星期1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='I accept. Create my account.']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>Email address cannot be empty!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>375633799@qq.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps</td>
+	<td>asdf1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>zhuhaofeng</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwquestion</td>
+	<td>xuehao</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwanswer</td>
+	<td>08386194</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='I accept. Create my account.']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>Please input the re-type password!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>375633799@qq.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps</td>
+	<td>asdf1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps2</td>
+	<td>asdda4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>zhuhaofeng</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwquestion</td>
+	<td>xuehao</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwanswer</td>
+	<td>08386194</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='I accept. Create my account.']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>The two password are not the same!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>375633799@qq.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps</td>
+	<td>asdf1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps2</td>
+	<td>asdf1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwquestion</td>
+	<td>xuehao</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwanswer</td>
+	<td>08386194</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='I accept. Create my account.']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>Please Input nickname!</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>email</td>
+	<td>375633799@qq.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps</td>
+	<td>asdf1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>ps2</td>
+	<td>asdf1234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>zhuhaofeng</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pwquestion</td>
+	<td>xuehao</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='I accept. Create my account.']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

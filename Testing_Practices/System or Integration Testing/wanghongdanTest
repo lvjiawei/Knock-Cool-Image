@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/lvjiawei-Knock-Cool-Image-version1" />
+<title>王宏丹Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">王宏丹Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/lvjiawei-Knock-Cool-Image-version1/user.php?uid=35</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>listbutton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@id='listbutton' and @value='Pre Post']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>img1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=K-Image首页</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>img1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>newframe</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=newframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>tag</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Create new album']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>img1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[2]/div[1]/a/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=K-Image首页</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>img1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>img1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>newframe</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=newframe</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>photo</td>
+	<td>C:\Users\Administrator.WIN-7D1VJRHPF0D\Pictures\桌面\girl01.jpg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>pname</td>
+	<td>dd</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Add new Photo']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=修改资料</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//input[@id='avatar' and @name='avatar' and @type='file']</td>
+	<td>C:\Users\Administrator.WIN-7D1VJRHPF0D\Pictures\桌面\黑马.jpg</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Upload']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Upload']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Upload']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
